@@ -3,7 +3,10 @@ import { useForm} from "react-hook-form";
 import { useEffect } from "react";
 
 export default function ModalDisciplina({ onClose, adicionarDisciplina, disciplinaParaEditar, onAtualizarDisciplina }) {
-    const { register, handleSubmit, formState: { errors }, reset} = useForm();
+    const { register,
+        handleSubmit,
+        formState: { errors },
+        reset} = useForm();
 
     function onSubmit(data) {
         const novaDisciplina = {

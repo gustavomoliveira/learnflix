@@ -1,6 +1,5 @@
 .container{
     padding: 24px;
-
 }
 
 .titulo{
@@ -8,12 +7,12 @@
     margin-bottom: 24px;
     color: black;
 }
+
 .lista{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
 }
-
 
 .card{
     background: white;

@@ -14,6 +14,7 @@ export default function FormularioCadastro({ onSubmit }) {
             <div>
                 <label htmlFor="perfil">Perfil</label>
                 <select
+                    data-testid="select-perfil"
                     id="perfil"
                     defaultValue=""
                     {...register("perfil", {
@@ -31,6 +32,7 @@ export default function FormularioCadastro({ onSubmit }) {
             <div>
                 <label htmlFor="nomeCompleto">Nome Completo</label>
                 <input
+                    data-testid="input-nome"
                     id="nomeCompleto"
                     type="text"
                     placeholder="Digite seu nome completo"
@@ -42,12 +44,13 @@ export default function FormularioCadastro({ onSubmit }) {
                         }
                     })}
                 />
-                {errors.nomeCompleto && <span className={styles.error}>{errors.nomeCompleto.message}</span>}
+                {errors.nomeCompleto && <span data-testid="erro-nome" className={styles.error}>{errors.nomeCompleto.message}</span>}
             </div>
 
             <div>
                 <label htmlFor="email">Email</label>
                 <input
+                    data-testid="input-email"
                     id="email"
                     type="email"
                     placeholder="Digite seu e-mail"
@@ -59,12 +62,13 @@ export default function FormularioCadastro({ onSubmit }) {
                         }
                     })}
                 />
-                {errors.email && <span className={styles.error}>{errors.email.message}</span>}
+                {errors.email && <span data-testid="erro-email" className={styles.error}>{errors.email.message}</span>}
             </div>
 
             <div>
                 <label htmlFor="matricula">Matrícula/Registro</label>
                 <input
+                    data-testid="input-matricula"
                     id="matricula"
                     type="text"
                     placeholder="Digite sua matrícula ou registro"
@@ -76,12 +80,13 @@ export default function FormularioCadastro({ onSubmit }) {
                         }
                     })}
                 />
-                {errors.matricula && <span className={styles.error}>{errors.matricula.message}</span>}
+                {errors.matricula && <span data-testid="erro-matricula" className={styles.error}>{errors.matricula.message}</span>}
             </div>
 
             <div>
                 <label htmlFor="senha">Senha</label>
                 <input
+                    data-testid="input-senha"
                     id="senha"
                     type="password"
                     placeholder="Mínimo de 8 caracteres para senha"
@@ -97,12 +102,13 @@ export default function FormularioCadastro({ onSubmit }) {
                         }
                     })}
                 />
-                {errors.senha && <span className={styles.error}>{errors.senha.message}</span>}
+                {errors.senha && <span data-testid="erro-senha" className={styles.error}>{errors.senha.message}</span>}
             </div>
 
             <div>
                 <label htmlFor="confirmarSenha">Confirmar Senha</label>
                 <input
+                    data-testid="input-confirmar-senha"
                     id="confirmarSenha"
                     type="password"
                     placeholder="Confirme sua senha"
@@ -112,12 +118,13 @@ export default function FormularioCadastro({ onSubmit }) {
                             value === watch("senha") || "As senhas devem ser iguais"
                     })}
                 />
-                {errors.confirmarSenha && <span className={styles.error}>{errors.confirmarSenha.message}</span>}
+                {errors.confirmarSenha && <span data-testid="erro-confirmar-senha" className={styles.error}>{errors.confirmarSenha.message}</span>}
             </div>
 
             <div>
                 <label htmlFor="telefone">Telefone</label>
                 <input
+                    data-testid="input-telefone"
                     id="telefone"
                     type="tel"
                     placeholder="(00) 00000-0000"
@@ -128,21 +135,22 @@ export default function FormularioCadastro({ onSubmit }) {
                         }
                     })}
                 />
-                {errors.telefone && <span className={styles.error}>{errors.telefone.message}</span>}
+                {errors.telefone && <span data-testid="erro-telefone" className={styles.error}>{errors.telefone.message}</span>}
             </div>
 
             <div>
                 <label htmlFor="dataNascimento"></label>
                 <input
+                    data-testid="input-data-nascimento"
                     id="dataNascimento"
                     type="date"
                     placeholder="Data de Nascimento"
                     {...register("dataNascimento")}
                 />
-                {errors.dataNascimento && <span className={styles.error}>{errors.dataNascimento.message}</span>}
+                {errors.dataNascimento && <span data-testid="erro-data-nascimento" className={styles.error}>{errors.dataNascimento.message}</span>}
             </div>
 
-            <button type="submit" disabled={!isValid}>
+            <button data-testid="btn-cadastrar" type="submit" disabled={!isValid}>
                 Cadastrar
             </button>
         </form>

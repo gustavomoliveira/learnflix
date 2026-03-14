@@ -10,7 +10,6 @@ export default function CardDisciplina({ disc, onAbrirModalEdicao, onToggleStatu
 
     const { texto, classe } = getBtnConfig(disc.status);
 
-
     return (
         <article className={styles.card}>
             <h2 className={styles.title}>{disc.nome}</h2>
