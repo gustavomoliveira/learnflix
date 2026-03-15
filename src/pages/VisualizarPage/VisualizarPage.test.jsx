@@ -28,7 +28,6 @@ describe("VisualizarPage", () => {
         expect(screen.getByRole("link", { name: /introdução ao react/i })).toBeInTheDocument();
         expect(screen.getByRole("link", { name: /componentes e props/i })).toBeInTheDocument();
         expect(screen.getByRole("link", { name: /hooks na prática/i })).toBeInTheDocument();
-
         expect(screen.getAllByRole("link")).toHaveLength(3);
     });
 
