@@ -40,3 +40,19 @@ describe("VisualizarPage", () => {
         const linksMateriais = screen.getAllByRole("link");
         expect(linksMateriais).toHaveLength(3);
     });
+    test("voltar para a lista de disciplinas", async () => {
+        const user = userEvent.setup();
+
+        render(<VisualizarPage />);
+
+        const botoesAcessar = screen.getAllByRole("button", { name: /acessar/i });
+        await user.click(botoesAcessar[0]);
+        await user.click(screen.getByRole("button", { name: /voltar/i }));
+
+        expect(
+            screen.getByRole("heading", { name: /disciplinas/i })
+        ).toBeInTheDocument();
+
+        expect(screen.getByText(/frontend com react/i)).toBeInTheDocument();
+        expect(screen.getAllByRole("button", { name: /acessar/i })).toHaveLength(5);
+    });
