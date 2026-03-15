@@ -32,21 +32,18 @@ describe("VisualizarPage", () => {
         expect(screen.getAllByRole("link")).toHaveLength(3);
     });
 
-    test("permite voltar para a lista de disciplinas apos clicar em uma disciplina especifica", async () => {
-        const user = userEvent.setup();
-
+    test("permite voltar para a lista de disciplinas apos clicar em uma disciplina especifica", () => {
         render(<VisualizarPage />);
-
         const botoesAcessar = screen.getAllByRole("button", { name: /acessar/i });
-        await user.click(botoesAcessar[0]);
+        userEvent.click(botoesAcessar[0]);
 
-        await user.click(screen.getByRole("button", { name: /voltar/i }));
-
+        const botaoVoltar = screen.getByRole("button", { name: /voltar/i });
+        userEvent.click(botaoVoltar);
         expect(
             screen.getByRole("heading", { name: /disciplinas/i })
         ).toBeInTheDocument();
 
-        expect(screen.getByText(/frontend com react/i)).toBeInTheDocument();
+        expect(screen.getByText("Frontend com React")).toBeInTheDocument();
         expect(screen.getAllByRole("button", { name: /acessar/i })).toHaveLength(5);
     });
     test("exibe mensagem quando a disciplina não possui materiais", async () => {
