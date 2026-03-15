@@ -43,7 +43,6 @@
     font-weight: bold;
 }
 
-
 .materiaisContainer {
     margin-top: 20px;
     color: black;
@@ -64,11 +63,38 @@
     color: white;
 
 }
-@media (min-width: 768px) {
-    .cardsContainer {
-        grid-template-columns: 1fr;
+    @media (min-width: 768px) {
+        .container {
+            padding: 24px;
+        }
+
+        .titulo {
+            font-size: 42px;
+        }
+
+        .lista {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .card {
+            padding: 24px;
+            min-height: 260px;
+        }
+        .card h2 {
+            font-size: 24px;
+        }
+        .card p {
+            font-size: 18px;
+        }
+        .botao {
+            font-size: 18px;
+        }
+        .materialItem {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
-}
 @media (min-width: 1024px) {
     .titulo {
         font-size: 55px;
