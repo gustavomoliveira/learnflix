@@ -18,27 +18,18 @@ describe("VisualizarPage", () => {
         expect(screen.getAllByRole("button", { name: /acessar/i })).toHaveLength(5);
     });
 
-    test("acessar uma disciplina e visualizar seus materiais", async () => {
-        const user = userEvent.setup();
-
+    test("acessar uma disciplina especifica e visualizar seus materiais", () => {
         render(<VisualizarPage />);
+
         const botoesAcessar = screen.getAllByRole("button", { name: /acessar/i });
-        await user.click(botoesAcessar[0]);
+        userEvent.click(botoesAcessar[0]);
+        expect(screen.getByRole("button", { name: /voltar/i })).toBeInTheDocument();
+        expect(screen.getByText("Frontend com React")).toBeInTheDocument();
+        expect(screen.getByText("Introdução ao React")).toBeInTheDocument();
+        expect(screen.getByText("Componentes e Props")).toBeInTheDocument();
+        expect(screen.getByText("Hooks na prática")).toBeInTheDocument();
 
-        expect(
-            screen.getByRole("button", { name: /voltar/i })
-        ).toBeInTheDocument();
-
-        expect(
-            screen.getByRole("heading", { name: /frontend com react/i })
-        ).toBeInTheDocument();
-
-        expect(screen.getByText(/introdução ao react/i)).toBeInTheDocument();
-        expect(screen.getByText(/componentes e props/i)).toBeInTheDocument();
-        expect(screen.getByText(/hooks na prática/i)).toBeInTheDocument();
-
-        const linksMateriais = screen.getAllByRole("link");
-        expect(linksMateriais).toHaveLength(3);
+        expect(screen.getAllByRole("link")).toHaveLength(3);
     });
 
     test("permite voltar para a lista de disciplinas apos clicar em uma disciplina especifica", async () => {
