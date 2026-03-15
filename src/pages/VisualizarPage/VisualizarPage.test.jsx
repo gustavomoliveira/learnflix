@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import VisualizarPage from "./VisualizarPage";
 
 describe("VisualizarPage", () => {
-    test("renderiza a lista complet de disciplinas na tela", () => {
+    test("renderiza a lista completa de todas disciplinas na tela", () => {
         render(<VisualizarPage />);
 
         expect(
