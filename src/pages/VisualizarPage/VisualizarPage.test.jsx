@@ -15,8 +15,7 @@ describe("VisualizarPage", () => {
         expect(screen.getByText(/banco de dados/i)).toBeInTheDocument();
         expect(screen.getByText(/engenharia de software/i)).toBeInTheDocument();
 
-        const botoesAcessar = screen.getAllByRole("button", { name: /acessar/i });
-        expect(botoesAcessar).toHaveLength(5);
+        expect(screen.getAllByRole("button", { name: /acessar/i })).toHaveLength(5);
     });
 
     test("acessar uma disciplina e visualizar seus materiais", async () => {
