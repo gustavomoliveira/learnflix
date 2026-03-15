@@ -36,7 +36,6 @@ describe("VisualizarPage", () => {
         render(<VisualizarPage />);
         const botoesAcessar = screen.getAllByRole("button", { name: /acessar/i });
         userEvent.click(botoesAcessar[0]);
-
         const botaoVoltar = screen.getByRole("button", { name: /voltar/i });
         userEvent.click(botaoVoltar);
         expect(
@@ -46,17 +45,12 @@ describe("VisualizarPage", () => {
         expect(screen.getByText("Frontend com React")).toBeInTheDocument();
         expect(screen.getAllByRole("button", { name: /acessar/i })).toHaveLength(5);
     });
-    test("exibe mensagem quando a disciplina não possui materiais", async () => {
-        const user = userEvent.setup();
-
+    test("exibe mensagem quando a disciplina não possui materiais", () => {
         render(<VisualizarPage />);
-
         const botoesAcessar = screen.getAllByRole("button", { name: /acessar/i });
-        await user.click(botoesAcessar[4]);
-        expect(
-            screen.getByRole("heading", { name: /engenharia de software/i })
-        ).toBeInTheDocument();
+        userEvent.click(botoesAcessar[4]);
 
+        expect(screen.getByText("Engenharia de Software")).toBeInTheDocument();
         expect(
             screen.getByText(/esta disciplina ainda não possui materiais/i)
         ).toBeInTheDocument();
