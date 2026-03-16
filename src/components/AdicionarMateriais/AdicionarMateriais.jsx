@@ -39,12 +39,12 @@ export default function AdicionarMateriais({adicionarMaterial}) {
 
     return (
         <form onSubmit={handleSubmit}  className={styles.formulario}>
-            <label>Titulo: </label>
-            <input type="text" value={titulo} placeholder= "Titulo do Material" onChange={(e) => setTitulo(e.target.value)} required={true} />
-            <label>Descrição: </label>
-            <textarea  value={descricao} placeholder= "Descrição do Conteudo" onChange={(e) => setDescricao(e.target.value)}  />
-            <label>Upload Arquivo: </label>
-            <input type="file" onChange={(e) => setArquivo(e.target.files[0]) } accept=".jpg,.png,.pdf,.doc,.docx" required={true} /><button type="submit" disabled={loading}>
+            <label htmlFor={"titulo"}>Titulo: </label>
+            <input type="text" value={titulo}  id={"titulo"} placeholder= "Titulo do Material" onChange={(e) => setTitulo(e.target.value)} required={true} />
+            <label htmlFor={"descricao"}>Descrição: </label>
+            <textarea id={"descricao"} value={descricao} placeholder= "Descrição do Conteudo" onChange={(e) => setDescricao(e.target.value)}  />
+            <label htmlFor={"upload"}>Upload Arquivo: </label>
+            <input type="file" id={"upload"} onChange={(e) => setArquivo(e.target.files[0]) } accept=".jpg,.png,.pdf,.doc,.docx" required={true} /><button type="submit" disabled={loading}>
             {loading ? 'Carregando...' : 'Adicionar Material'}
         </button>
         </form>
