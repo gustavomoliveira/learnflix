@@ -27,7 +27,6 @@ export default function AdicionarMateriais({adicionarMaterial}) {
                  }
 
 
-
                  adicionarMaterial(novoMaterial);
 
             setTitulo("");
