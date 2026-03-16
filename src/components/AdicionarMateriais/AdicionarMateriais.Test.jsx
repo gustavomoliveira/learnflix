@@ -20,7 +20,7 @@ describe("AdicionarMateriais", () => {
             screen.getByRole("button", { name: /adicionar material/i })
         ).toBeInTheDocument();
     });
-    test("ao enviar, o botão muda para 'Carregando...'", () => {
+    test("botao muda para 'Carregando...'", () => {
         render(<AdicionarMateriais adicionarMaterial={jest.fn()} />);
         fireEvent.change(screen.getByLabelText(/titulo/i), {
             target: { value: "Material Teste" },
@@ -40,3 +40,41 @@ describe("AdicionarMateriais", () => {
             screen.getByRole("button", { name: /carregando/i })
         ).toBeInTheDocument();
     });
+    test("chama adicionarMaterial com dados corretos e limpa os campos", () => {
+        const adicionarMaterialMock = jest.fn();
+        render(<AdicionarMateriais adicionarMaterial={adicionarMaterialMock} />);
+
+        const inputTitulo = screen.getByLabelText(/titulo/i);
+        const inputDescricao = screen.getByLabelText(/descrição/i);
+        const inputUpload = screen.getByLabelText(/upload arquivo/i);
+
+        fireEvent.change(inputTitulo, { target: { value: "React Hooks" } });
+        fireEvent.change(inputDescricao, {
+            target: { value: "Material sobre useState e useEffect" },
+        });
+
+        const arquivo = new File(["conteudo"], "hooks.pdf", {
+            type: "application/pdf",
+        });
+
+        fireEvent.change(inputUpload, { target: { files: [arquivo] } });
+
+        fireEvent.click(screen.getByRole("button", { name: /adicionar material/i }));
+
+        act(() => {
+            jest.advanceTimersByTime(2000);
+        });
+        expect(adicionarMaterialMock).toHaveBeenCalledTimes(1);
+        expect(adicionarMaterialMock).toHaveBeenCalledWith(
+            expect.objectContaining({
+                titulo: "React Hooks",
+                descricao: "Material sobre useState e useEffect",
+                nomeArquivo: "hooks.pdf",
+                tipoArquivo: "application/pdf",
+            })
+        );
+
+        expect(inputTitulo).toHaveValue("");
+        expect(inputDescricao).toHaveValue("");
+    });
+});
