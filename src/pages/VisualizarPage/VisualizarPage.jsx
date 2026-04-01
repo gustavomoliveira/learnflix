@@ -52,9 +52,7 @@ export default function VisualizarPage() {
                     </button>
 
                     <h2>{disciplinaSelecionada.nome}</h2>
-
                     <div className={styles.materiaisContainer}>
-
                         {disciplinaSelecionada.materiais.length === 0 && (
                             <p>
                                 Esta disciplina ainda não possui materiais.
@@ -81,7 +79,6 @@ export default function VisualizarPage() {
                     </div>
                 </>
             )}
-
         </div>
     );
 }

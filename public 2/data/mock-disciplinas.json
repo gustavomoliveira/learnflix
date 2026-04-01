@@ -1,0 +1,94 @@
+{
+  "disciplinas": [
+    {
+      "id": 1,
+      "nome": "Algoritmos e Estruturas de Dados I",
+      "codigo": "AED-2026.1-A",
+      "descricao": "Turma matutina com foco em árvores binárias e algoritmos de ordenação",
+      "semestre": "2026.1",
+      "status": "ativa",
+      "alunosMatriculados": 35
+    },
+    {
+      "id": 2,
+      "nome": "Programação Orientada a Objetos",
+      "codigo": "POO-2026.1-B",
+      "descricao": "Turma vespertina - Java e princípios SOLID",
+      "semestre": "2026.1",
+      "status": "ativa",
+      "alunosMatriculados": 42
+    },
+    {
+      "id": 3,
+      "nome": "Banco de Dados I",
+      "codigo": "BD1-2026.1-A",
+      "descricao": "Modelagem relacional e SQL avançado",
+      "semestre": "2026.1",
+      "status": "ativa",
+      "alunosMatriculados": 28
+    },
+    {
+      "id": 4,
+      "nome": "Engenharia de Software",
+      "codigo": "ES-2025.2-A",
+      "descricao": "Metodologias ágeis e práticas de desenvolvimento",
+      "semestre": "2025.2",
+      "status": "inativa",
+      "alunosMatriculados": 31
+    },
+    {
+      "id": 5,
+      "nome": "Desenvolvimento Web Front-end",
+      "codigo": "WEB-2026.1-C",
+      "descricao": "React, TypeScript e design responsivo",
+      "semestre": "2026.1",
+      "status": "ativa",
+      "alunosMatriculados": 45
+    },
+    {
+      "id": 6,
+      "nome": "Redes de Computadores",
+      "codigo": "REDES-2026.1-A",
+      "descricao": "Protocolos TCP/IP e configuração de redes",
+      "semestre": "2026.1",
+      "status": "ativa",
+      "alunosMatriculados": 23
+    },
+    {
+      "id": 7,
+      "nome": "Sistemas Operacionais",
+      "codigo": "SO-2025.2-B",
+      "descricao": "Linux, gerenciamento de processos e memória",
+      "semestre": "2025.2",
+      "status": "inativa",
+      "alunosMatriculados": 19
+    },
+    {
+      "id": 8,
+      "nome": "Segurança da Informação",
+      "codigo": "SEG-2026.1-A",
+      "descricao": "Criptografia e práticas de segurança em sistemas",
+      "semestre": "2026.1",
+      "status": "ativa",
+      "alunosMatriculados": 27
+    },
+    {
+      "id": 9,
+      "nome": "Inteligência Artificial",
+      "codigo": "IA-2026.1-B",
+      "descricao": "Machine Learning e redes neurais aplicadas",
+      "semestre": "2026.1",
+      "status": "ativa",
+      "alunosMatriculados": 38
+    },
+    {
+      "id": 10,
+      "nome": "Arquitetura de Software",
+      "codigo": "ARQ-2025.2-A",
+      "descricao": "Padrões de projeto e arquiteturas escaláveis",
+      "semestre": "2025.2",
+      "status": "inativa",
+      "alunosMatriculados": 50
+    }
+  ]
+}

@@ -1,27 +1,32 @@
 import ListaMateriais from "../../components/ListaMateriais/ListaMateriais"
 import AdicionarMateriais from "../../components/AdicionarMateriais/AdicionarMateriais"
-
 import styles from './MateriaisPage.module.css'
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
+import dadosMateriais from '../../data/materiais.json'
 
 export default function MateriaisPage() {
-    const [materiais, setMateriais] = useState([
-        {titulo: 'Fundamentos do React', descricao: "Aula 1 de Fundamento do React", nomeArquivo: "Aula1-Fundamento do React", id: 1, tipoArquivo: "PDF"},
-        {titulo: 'Fundamentos do React', descricao: "Aula 2 de Fundamento do React", nomeArquivo: "Aula2-FR", id: 2, tipoArquivo: "PDF"},
-        {titulo: 'Python', descricao: "Logica de Programação em Python", nomeArquivo: "LogicaEmPythonFoto", id: 3, tipoArquivo: "PNG"},
-        {titulo: 'Materiais Complementares', descricao: "Arrays, Vetores, Pilhas...", nomeArquivo: "TiposDeAgrupamentos", id: 4, tipoArquivo: "PDF"},
-        {titulo: 'JavaScript Avançado', descricao: "Promises e Async/Await", nomeArquivo: "JS-Async", id: 5, tipoArquivo: "PDF"},
-        {titulo: 'CSS Grid Layout', descricao: "Guia completo de Grid", nomeArquivo: "GridLayout", id: 6, tipoArquivo: "DOCX"},
-        {titulo: 'Git e GitHub', descricao: "Controle de versão para iniciantes", nomeArquivo: "GitBasico", id: 7, tipoArquivo: "PDF"},
-        {titulo: 'Diagrama ER', descricao: "Modelagem de banco de dados", nomeArquivo: "DiagramaER", id: 8, tipoArquivo: "JPG"},
-    ]);
+    const [materiais, setMateriais] = useState([]);
+
+    useEffect(() => {
+        const listaAchatada = dadosMateriais.disciplinas.flatMap(disciplina =>
+            disciplina.materiais.map(item => ({
+                id: item.id,
+                titulo: item.titulo,
+                descricao: `Matéria: ${disciplina.nome}`,
+                nomeArquivo: item.titulo,
+                tipoArquivo: item.tipo
+            }))
+        );
+
+        setMateriais(listaAchatada);
+    }, []);
 
     const adicionarMaterial = (novoMaterial) => {
-        setMateriais([...materiais, novoMaterial]);
+        setMateriais([...materiais, { ...novoMaterial, id: Date.now() }]);
     }
 
     const excluirMaterial = (id) => {
-        setMateriais(materiais.filter(material=> material.id !== id));
+        setMateriais(materiais.filter(material => material.id !== id));
     }
 
     return (
@@ -29,10 +34,6 @@ export default function MateriaisPage() {
             <h1>Materiais Didáticos</h1>
             <AdicionarMateriais adicionarMaterial={adicionarMaterial} />
             <ListaMateriais materiais={materiais} excluirMaterial={excluirMaterial} />
-
-
         </div>
     )
-
 }
-
